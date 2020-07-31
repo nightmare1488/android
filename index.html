@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>My first page</title>
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script>
+		jQuery(function(){
+		  var app = $('#appetize');
+		  $("#setkey").on('click', function(){
+			var key = $( '#key' ).val();
+			var src = app.attr('src');
+			var replaced = src.replace( /\<PRIVATEKEY\>/g, key );
+			app.attr( 'src', replaced );
+		  });
+		});
+    </script>
+  </head>
+  <body>
+    <input type="text" id="key" placeholder="Put your Public Key here"><input id="setkey" type="submit" value="Set Public Key">
+    <p><iframe src="https://appetize.io/embed/<PRIVATEKEY>?device=nexus&amp;scale=75&amp;screenOnly=true&amp;autoplay=false&amp;orientation=portrait&amp;deviceColor=white" width="378px" height="800px" frameborder="0" scrolling="no" id="appetize"></iframe></p>    
+  </body>
+</html>
